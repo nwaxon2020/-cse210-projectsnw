@@ -8,9 +8,6 @@ class Program
         PromptGenerator promptGenerator = new PromptGenerator();
         Entry entry = new Entry();
 
-        journal._entries = new List<Entry>();
-
-        
         Console.WriteLine($"\nWelcome to the Journal Program");
 
         bool askQueston = true;
@@ -32,12 +29,24 @@ class Program
                 entry._entryText = Console.ReadLine();
 
                 Console.WriteLine($"\n Entry Recored...successfully");
+
+                journal.AddEntry(entry);
+
             }
-            else if(int.Parse(choice) == 4)
+
+            else if(int.Parse(choice) == 2)
             {
-                journal.DisplayAll();
+                Console.Write("What is the file name? ");
+                string file = Console.ReadLine();
+                journal.SaveToFile(file);
             }
-            if (int.Parse(choice) == 5)
+            else if(int.Parse(choice) == 3)
+            {
+                Console.Write("What is the file name? ");
+                string file = Console.ReadLine();
+                journal.LoadFromFile(file);
+            }
+            else if (int.Parse(choice) == 5)
             {             
                 Console.WriteLine("Program Exited Successfully...\n");
                 askQueston = false;
@@ -47,12 +56,8 @@ class Program
                 Console.WriteLine("Invalid Entry...Please check the option Numbers again!!\n");
             }
 
-            journal._entries.Add(entry);
-
-            Console.WriteLine(journal._entries.Count);
-
-            journal.DisplayAll();
         } 
+        journal.DisplayAll();
 
         
     }
