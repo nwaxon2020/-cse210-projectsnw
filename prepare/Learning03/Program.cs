@@ -26,5 +26,18 @@ class Program
         double funct8 = function4.GetDecimalValue();
         Console.WriteLine($"{funct7}\n{funct8}");
 
+
+
+
+        // Console.Write($" What is the place?\n >> ");
+
+        // string verb = Console.ReadLine();
+        // Console.WriteLine(verb);
+        // Console.Clear();
+        // Console.Write($" What is the place Again?\n >>> ");
+        // string verbs = Console.ReadLine();
+        // Console.WriteLine(verbs);
+        
+
     }
 }
