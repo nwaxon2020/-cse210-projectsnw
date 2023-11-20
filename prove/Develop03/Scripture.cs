@@ -6,14 +6,16 @@ public class Scripture
     private Reference _reference;
     private List<Word> _words = new List<Word>();
 
-    private bool _isCompletelyHidden;
+    private bool _isCompletelyHidden = true;
 
     public Scripture(Reference reference, string text)
     {
         _reference = reference;
-        string[] brokenText = text.Split(" ");
+        string[] splitedText = text.Split(" ");
 
-        foreach (string wrd in brokenText)
+       
+
+        foreach (string wrd in splitedText)
         {
             Word newWord = new Word(wrd);
             _words.Add(newWord);
@@ -21,31 +23,31 @@ public class Scripture
     }
 
     public void HideRandomWords(int numberToHide)
-    {
-        numberToHide =  _words.Count;
-        
+    { 
         Random random = new Random();
         int hiddenWord = random.Next(_words.Count);
 
-        _words[hiddenWord].Hide();
-        numberToHide -= 1;
-
-        foreach (Word item in _words)
-        {
-            Console.Write($"{item.GetDisplay()} ");
-            
-        }
-    }
-
+        foreach (Word text in _words)
+        { 
+            Console.Write($"{text.GetDisplay()} ");
+            _words[hiddenWord].Hide();    
+            numberToHide --;                   
+        } 
+                      
+    }        
     public string GetDisplayText()
     {
-        HideRandomWords(2);
-        return "";
-        
+        string displayText = "";
+        foreach (Word word in _words)
+        {
+            displayText += $"{word.GetDisplay()} ";
+        }
+        return displayText.Trim();
     }
 
     public bool IsCompletelyHidden()
     {
+        _isCompletelyHidden = _words.TrueForAll(word => word.IsHidden());
         return _isCompletelyHidden;
     }
 }
