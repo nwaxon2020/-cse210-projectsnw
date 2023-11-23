@@ -14,7 +14,7 @@ public class Assignment
         _studentName = studentName;
         _topic = topic;
     }
-
+    
 
     public string GetSummary()
     {
