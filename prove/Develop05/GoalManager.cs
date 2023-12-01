@@ -14,17 +14,20 @@ public class GoalManager
 
     public void Start()
     {
-        DisplayPlayerInfo();
-
-        Console.WriteLine("Menu Options:");
-        Console.WriteLine(" 1. Create New Goal\n 2. List Goals\n 3. Save Goals\n 4. Load Goals\n 5. Record Event\n 6. Quit");
-        Console.Write("Select a choice from the Menu: ");
-
-        string choice = Console.ReadLine();
-        int userChoice = int.Parse(choice);
+        int userChoice = 0;
 
         while(userChoice != 6)
         {
+            Console.WriteLine("");
+            DisplayPlayerInfo();
+
+            Console.WriteLine("\nMenu Options:");
+            Console.WriteLine(" 1. Create New Goal\n 2. List Goals\n 3. Save Goals\n 4. Load Goals\n 5. Record Event\n 6. Quit");
+            Console.Write("Select a choice from the Menu: ");
+
+            string choice = Console.ReadLine();
+            userChoice = int.Parse(choice);
+
             if(userChoice == 1)
             {
                 CreateGoals();
