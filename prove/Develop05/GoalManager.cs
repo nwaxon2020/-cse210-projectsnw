@@ -32,7 +32,7 @@ public class GoalManager
             {
                 CreateGoals();
             }
-            if(userChoice == 2)
+            else if(userChoice == 2)
             {
                 ListGoalDetails();
             }
@@ -40,9 +40,9 @@ public class GoalManager
             {
                 SaveGoals();
             }
-            if(userChoice == 4)
+            else if(userChoice == 4)
             {
-                SaveGoals();
+                LoadGoals();
             }
         }
         Console.WriteLine("\nProgram has ended\n");
@@ -129,6 +129,7 @@ public class GoalManager
         {
             foreach (Goal discripion in _goals)
             {
+                outputFile.WriteLine(_score);
                 outputFile.WriteLine($"{discripion.GetStringRepresentation()}");
             }
         }
@@ -151,12 +152,21 @@ public class GoalManager
             string name = parts2[0];
             string discripion = parts2[1];
             int pointz = int.Parse(parts2[2]);
-           string isCompleted = parts2[3];
+            bool isCompleted = bool.Parse(parts2[3]);
+            int target = int.Parse(parts2[4]);
+            int amountCompleted = int.Parse(parts2[5]);
            
+            SimpleGoal simpleGoals = new SimpleGoal(name,discripion,pointz);
+            EternalGoals eternalGoals = new EternalGoals(name,discripion,pointz);
+            ChecklistGoal checklistGoals = new ChecklistGoal(name,discripion,pointz,target,amountCompleted);
 
-            ChecklistGoal checklistGoal = new ChecklistGoal(parts1[0],parts1[1],parts1[2], parts[3]);
+            _goals.Add(simpleGoals);
+            _goals.Add(eternalGoals);
+            _goals.Add(checklistGoals);
+            
 
         }
-        
+
+       
     }
 }
