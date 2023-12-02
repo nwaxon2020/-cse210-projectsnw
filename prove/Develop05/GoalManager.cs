@@ -127,9 +127,9 @@ public class GoalManager
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
+            outputFile.WriteLine(_score);
             foreach (Goal discripion in _goals)
             {
-                outputFile.WriteLine(_score);
                 outputFile.WriteLine($"{discripion.GetStringRepresentation()}");
             }
         }
@@ -163,10 +163,10 @@ public class GoalManager
             _goals.Add(simpleGoals);
             _goals.Add(eternalGoals);
             _goals.Add(checklistGoals);
+
+            break;
             
-
         }
-
-       
+     
     }
 }
