@@ -2,12 +2,11 @@ using System;
 
 public abstract class Goal
 {
-    private string _shortName;
-    private string _discription;
+    protected string _shortName;
+    protected string _discription;
+    protected int _points;
 
-    private string _points;
-
-    public Goal(string name, string discription, string points)
+    public Goal(string name, string discription, int points)
     {
         _shortName = name;
         _discription = discription;

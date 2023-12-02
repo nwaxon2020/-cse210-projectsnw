@@ -7,9 +7,11 @@ public class GoalManager
     private List<Goal> _goals = new List<Goal>();
     private int _score = 0;
 
+    private List<string> _name = new List<string>();
+
     public GoalManager()
     {
-    
+        
     }
 
     public void Start()
@@ -32,6 +34,10 @@ public class GoalManager
             {
                 CreateGoals();
             }
+            if(userChoice == 2)
+            {
+                ListGoalDetails();
+            }
         }
         Console.WriteLine("\nProgram has ended\n");
     }
@@ -45,7 +51,12 @@ public class GoalManager
     }
     public void ListGoalDetails()
     {
-
+        Console.WriteLine("The goals are:");
+        foreach (Goal goal in _goals)
+        {
+            string goals = goal.GetDetailsString();
+            Console.WriteLine(goals);
+        }
     }
     public void CreateGoals()
     {
@@ -58,12 +69,14 @@ public class GoalManager
 
         Console.Write("What is the name of your goal? ");
         string goalName = Console.ReadLine();
+        _name.Add(goalName);
 
         Console.Write("What is a short discription of it? ");
         string goalDiscription = Console.ReadLine();
 
         Console.Write("What is the amount of points associated with this goal? ");
-        string goalPoint = Console.ReadLine();
+        string point = Console.ReadLine();
+        int goalPoint = int.Parse(point);
 
         if (userAns == 1)
         {          
@@ -88,20 +101,19 @@ public class GoalManager
             int goalBonous = int.Parse(bonous);
 
             ChecklistGoal checklistGoal = new ChecklistGoal(goalName,goalDiscription,goalPoint,goalTarget,goalBonous);
-
+            
             _goals.Add(checklistGoal);
+
         }
         else
         {
             Console.WriteLine("\nWrong selection Entry\n");
         }
 
-
-
     }
     public void RecordEvent()
     {
-
+        
     }
     public void SaveGoals()
     {
