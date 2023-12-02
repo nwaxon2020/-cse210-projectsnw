@@ -7,8 +7,6 @@ public class GoalManager
     private List<Goal> _goals = new List<Goal>();
     private int _score = 0;
 
-    private List<string> _name = new List<string>();
-
     public GoalManager()
     {
         
@@ -37,6 +35,14 @@ public class GoalManager
             if(userChoice == 2)
             {
                 ListGoalDetails();
+            }
+            if(userChoice == 3)
+            {
+                SaveGoals();
+            }
+            if(userChoice == 4)
+            {
+                SaveGoals();
             }
         }
         Console.WriteLine("\nProgram has ended\n");
@@ -69,7 +75,6 @@ public class GoalManager
 
         Console.Write("What is the name of your goal? ");
         string goalName = Console.ReadLine();
-        _name.Add(goalName);
 
         Console.Write("What is a short discription of it? ");
         string goalDiscription = Console.ReadLine();
@@ -117,10 +122,41 @@ public class GoalManager
     }
     public void SaveGoals()
     {
+        Console.Write("What will you name the File? ");
+        string fileName = Console.ReadLine();
 
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            foreach (Goal discripion in _goals)
+            {
+                outputFile.WriteLine($"{discripion.GetStringRepresentation()}");
+            }
+        }
     }
     public void LoadGoals()
     {
+        Console.Write("What is the name of the saved File? ");
+        string loadfileName = Console.ReadLine();
 
+        string[] lines = System.IO.File.ReadAllLines(loadfileName);
+
+        foreach (string line in lines)
+        {
+            string[] parts1 = line.Split(":");
+            string goalName = parts1[0];
+
+            string goalDiscription = parts1[1];
+            string[] parts2 = goalDiscription.Split(",");
+
+            string name = parts2[0];
+            string discripion = parts2[1];
+            int pointz = int.Parse(parts2[2]);
+           string isCompleted = parts2[3];
+           
+
+            ChecklistGoal checklistGoal = new ChecklistGoal(parts1[0],parts1[1],parts1[2], parts[3]);
+
+        }
+        
     }
 }
