@@ -118,7 +118,8 @@ public class GoalManager
     }
     public void RecordEvent()
     {
-        
+        Console.Write("Enter the name of the goal for which you want to record an event: ");
+        string goalName = Console.ReadLine();
     }
     public void SaveGoals()
     {
