@@ -1,6 +1,7 @@
-Give a talk,giving a talk when asked,100,False
-Read a scripture,Study my scriptures mor often,50
-Attend a temple,perform ordinances for the dead,50,3,500,0
-Visit a sick,visit members tomorow,200,False
-Get a degree,get a BYU degree,300,8,1200,0
-Eat healthy,eating before late hour,150
+SimpleGoal:Give a talk,giving a talk when asked,100,False
+EternalGoal:Read a scripture,Study my scriptures mor often,50
+ChecklistGoal:Attend a temple,perform ordinances for the dead,50,500,3,0
+SimpleGoal:Visit a sick,visit members tomorow,200,False
+ChecklistGoal:Get a degree,get a BYU degree,300,1200,8,0
+EternalGoal:Eat healthy,eating before late hour,150
+SimpleGoal:Drink water,drink water today 25,25,False

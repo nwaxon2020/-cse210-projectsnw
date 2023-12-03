@@ -44,20 +44,8 @@ public class GoalManager
             {
                 LoadGoals();
             }
-            if(userChoice == 5)
-            {
-                RecordEvent();
-            }
-            else if(userChoice == 6)
-            {
-                Console.WriteLine("\nProgram has ended\n");
-            }
-            else
-            {
-                Console.WriteLine("\nWrong Choice Number Entry!!! try again");
-            }
         }
-        
+        Console.WriteLine("\nProgram has ended\n");
     }
     public void DisplayPlayerInfo()
     {

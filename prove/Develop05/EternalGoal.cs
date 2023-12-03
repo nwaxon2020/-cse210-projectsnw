@@ -19,6 +19,6 @@ public class EternalGoals : Goal
     }
     public override string GetStringRepresentation()
     {
-        return $"{_shortName},{_discription},{_points}";
+        return $"EternalGoal:{_shortName},{_discription},{_points}";
     }
 }
