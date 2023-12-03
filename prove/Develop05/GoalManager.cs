@@ -127,7 +127,6 @@ public class GoalManager
 
         using (StreamWriter outputFile = new StreamWriter(fileName))
         {
-            outputFile.WriteLine(_score);
             foreach (Goal discripion in _goals)
             {
                 outputFile.WriteLine($"{discripion.GetStringRepresentation()}");
@@ -137,36 +136,37 @@ public class GoalManager
     public void LoadGoals()
     {
         Console.Write("What is the name of the saved File? ");
-        string loadfileName = Console.ReadLine();
+        string loadFile = Console.ReadLine();
 
-        string[] lines = System.IO.File.ReadAllLines(loadfileName);
+        string[] lines = System.IO.File.ReadAllLines(loadFile);
 
         foreach (string line in lines)
         {
-            string[] parts1 = line.Split(":");
-            string goalName = parts1[0];
+            string[] parts = line.Split(",");
 
-            string goalDiscription = parts1[1];
-            string[] parts2 = goalDiscription.Split(",");
+            if(parts.Length == 3)
+            {
+                EternalGoals eternalGoals = new EternalGoals(parts[0],parts[1],int.Parse(parts[2]));
+                _goals.Add(eternalGoals);
+                //Console.WriteLine($"{parts[0]},{parts[1]},{parts[2]}");
+            }
 
-            string name = parts2[0];
-            string discripion = parts2[1];
-            int pointz = int.Parse(parts2[2]);
-            bool isCompleted = bool.Parse(parts2[3]);
-            int target = int.Parse(parts2[4]);
-            int amountCompleted = int.Parse(parts2[5]);
-           
-            SimpleGoal simpleGoals = new SimpleGoal(name,discripion,pointz);
-            EternalGoals eternalGoals = new EternalGoals(name,discripion,pointz);
-            ChecklistGoal checklistGoals = new ChecklistGoal(name,discripion,pointz,target,amountCompleted);
+            if(parts.Length == 4)
+            {
+                SimpleGoal simpleGoal = new SimpleGoal(parts[0],parts[1],int.Parse(parts[2]));
+                _goals.Add(simpleGoal);
+                //Console.WriteLine($"{parts[0]},{parts[1]},{parts[2]},{parts[3]}");
+            }
 
-            _goals.Add(simpleGoals);
-            _goals.Add(eternalGoals);
-            _goals.Add(checklistGoals);
-
-            break;
+            if(parts.Length == 6)
+            {
+                ChecklistGoal checklistGoal = new ChecklistGoal(parts[0],parts[1],int.Parse(parts[2]),int.Parse(parts[3]),int.Parse(parts[4]));
+                _goals.Add(checklistGoal);
+                //Console.WriteLine($"{parts[0]},{parts[1]},{parts[2]},{parts[3]},{parts[4]},{parts[5]}");
+            }
             
+          
         }
-     
     }
+    
 }

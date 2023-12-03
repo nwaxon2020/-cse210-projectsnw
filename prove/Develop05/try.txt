@@ -1,0 +1,3 @@
+Give a tak,giving talk when asked by bishop,100,False
+Reading Scriptures,Study my scripture every day,50
+Attend temple,perform ordinances for the dead,50,400,3,0
