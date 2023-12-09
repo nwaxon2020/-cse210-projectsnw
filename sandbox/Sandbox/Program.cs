@@ -7,6 +7,7 @@ class Program
     {
         Console.WriteLine("");
 
+        // Create Video 1 and comments
         Video video1 = new Video("Legend Of The Seeker","Mike Williams",44.8);
         Comment vid1Comment1 = new Comment("Mike Johnson","Wow! what a great movie");
         Comment vid1Comment2 = new Comment("Prince Nwachukwu","I am not a fan of this type of Film but it's great");
@@ -16,6 +17,7 @@ class Program
         video1.UpdateComment(vid1Comment3);
         video1.DisplayVideoDetails();
 
+        // Create Video 2 and comments
         Video video2 = new Video("Spider-Man","Disney",60.3);
         Comment vid2Comment1 = new Comment("Ikechukwu","No comments");
         Comment vid2Comment2 = new Comment("Alma","Is it on sale already?");
@@ -25,6 +27,7 @@ class Program
         video2.UpdateComment(vid2Comment3);
         video2.DisplayVideoDetails();
 
+        // Create Video 3 and comments
         Video video3 = new Video("Captain America","Marvels",56);
         Comment vid3Comment1 = new Comment("Matthew","Nice job by this team");
         Comment vid3Comment2 = new Comment("Eddie","I Love the ending");
