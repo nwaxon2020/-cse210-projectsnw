@@ -13,6 +13,6 @@ public class Comment
 
     public string DisplayComment()
     {
-        return $"Name: {_commenterName}\nComment: {_text}";
+        return $"Name: {_commenterName}\nComment: --{_text}--";
     }
 }
