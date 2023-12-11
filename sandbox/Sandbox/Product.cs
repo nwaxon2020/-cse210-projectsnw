@@ -22,6 +22,6 @@ public class Product
 
     public string Displayproduct()
     {
-        return $"   Product-Name: {_productName}\n   Product-ID: {_productID}\n  Price:__${_price}__\n   Quantity: {_quantity}\n";
+        return $"   Product-Name: {_productName}\n   Product-ID: {_productID}\n   Price:__${_price}__\n   Quantity: {_quantity}\n";
     }
 }
