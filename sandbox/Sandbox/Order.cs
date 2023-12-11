@@ -13,16 +13,16 @@ public class Order
         _totalCostOfOrder = 0;
     }
     
-    public void ProductList(Product product)
+    public void ProductList(Product product) // Add products to the Product list created
     {
         _products.Add(product);
     }
 
-    public void TotalCostOfOrder()
+    public void TotalCostOfOrder() // Calculate the total number of price in the Product List
     {
         int tax;
         
-        if(_customers.IsInUSA())
+        if(_customers.IsInUSA()) // Check if customer Country is USA, then Add $5
         {
             foreach (Product pd in _products)
             {
@@ -32,7 +32,7 @@ public class Order
             tax = 5;
             Console.WriteLine($"Tax: {tax}\nTotal Cost: ${_totalCostOfOrder + tax}");
         }
-        else
+        else // Check if customer Country is not USA, then Add $35
         {
             foreach (Product pd in _products)
             {
@@ -44,7 +44,7 @@ public class Order
         
     }
 
-    public void PackingLabel()
+    public void PackingLabel() // Package label for each product in the Product list
     {
         Console.WriteLine("_____PRODUCT PURCHASED_____");
         foreach (Product product in _products)
@@ -53,7 +53,7 @@ public class Order
         }
     }
 
-    public void ShippingLabel()
+    public void ShippingLabel() // Shipping Label
     {       
         Console.WriteLine (_customers.DisplayCustomerDetils());
     }

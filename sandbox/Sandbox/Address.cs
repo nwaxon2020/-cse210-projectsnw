@@ -3,10 +3,10 @@ using System.Diagnostics.Contracts;
 
 public class Address
 {
-    private string _streetAdd;
-    private string _city;
-    private string _stateOrProvince;
-    private string _country;
+    private string _streetAdd; // Street Attribute
+    private string _city; // City Attribute
+    private string _stateOrProvince; // State/Province Attribute
+    private string _country; // Country Attribute
 
     public Address(string street, string city, string stateOrProvince, string country)
     {
@@ -16,12 +16,12 @@ public class Address
         _country = country;
     }
 
-    public bool IsUSA()
+    public bool IsUSA() // Return if Customer Country is USA or Not
     {
         return _country.ToLower() == "usa";
     }
 
-    public string DisplayAddress()
+    public string DisplayAddress() // Return cutomer full Address
     {
        return $"Street: {_streetAdd}\nCity: {_city}\nState/Province: {_stateOrProvince}\nCountry: {_country} ";
     }

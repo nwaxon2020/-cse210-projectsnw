@@ -39,10 +39,12 @@ class Program
     //     video3.UpdateComment(vid3Comment4);
     //     video3.DisplayVideoDetails();
 
+    // Create Customer one and address
     Address address1 = new Address("Yakubu-Habibu","Sagamu","Ogun State","Nigeria");
     Customer customer1 = new Customer("Prince Nwachukwu",address1);
     Order order1 = new Order(customer1);
 
+    // Create products for customer one and Add products to list
     Product product1 = new Product("Soft-Drink","1245AG",190,3);
     order1.ProductList(product1);
     Product product2 = new Product("Bicycle","2496BI",1000,2);
@@ -50,14 +52,17 @@ class Program
     Product product3 = new Product("Rice","3838JDH",50,8);  
     order1.ProductList(product3);
 
+    // Diplay Orders of customer one
     order1.ShippingLabel();
     order1.PackingLabel();
     order1.TotalCostOfOrder();
 
+    // Create Customer two and address
     Address address2 = new Address("32, BYU street","BYU","Idaho","USA");
     Customer customer2 = new Customer("Mr. Kenedy",address2);
     Order order2 = new Order(customer2);
 
+    // Create products for customer two and Add products to list
     Product product21 = new Product("Gucci Bag","1245AG",950,1);
     order2.ProductList(product21);
     Product product22 = new Product("Soap","2496BI",120,5);
@@ -65,6 +70,7 @@ class Program
     Product product23 = new Product("Candy","3838JDH",22.8,10);  
     order2.ProductList(product23);
 
+    // Diplay Orders of customer two
     order2.ShippingLabel();
     order2.PackingLabel();
     order2.TotalCostOfOrder();
