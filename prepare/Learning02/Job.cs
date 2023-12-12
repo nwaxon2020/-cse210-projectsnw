@@ -1,5 +1,6 @@
 using System;
-public class Job{
+public class Job
+{
     public string _jobTitle;
     public string _companyName;
     public double _startYear;

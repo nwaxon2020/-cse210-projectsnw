@@ -26,7 +26,6 @@ public class Video
 
     public void DisplayVideoDetails() // Method to display all neccessary Videos and their comments
     {
-        Console.WriteLine("Welcome to the 'ABSTRACT' Program");
         Console.WriteLine($"  Title: {_title}\n  Author: {_author},\n  Video-Duration: {_duration} mins");
 
         Console.WriteLine("_____Video Comments_____");

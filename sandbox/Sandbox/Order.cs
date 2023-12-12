@@ -30,7 +30,7 @@ public class Order
             }
            
             tax = 5;
-            Console.WriteLine($"Tax: {tax}\nTotal Cost: ${_totalCostOfOrder + tax}");
+            Console.WriteLine($"Tax: ${tax}\nTotal Cost: ${_totalCostOfOrder + tax}");
         }
         else // Check if customer Country is not USA, then Add $35
         {
@@ -39,17 +39,20 @@ public class Order
                 _totalCostOfOrder += pd.ProductPrice();      
             }
             tax = 35;
-            Console.WriteLine($"Tax: {tax}\nTotal Cost: ${_totalCostOfOrder + tax}");
+            Console.WriteLine($"Tax: ${tax}\nTotal Cost: ${_totalCostOfOrder + tax}");
         }
         
     }
 
     public void PackingLabel() // Package label for each product in the Product list
     {
+        int count = 0;
         Console.WriteLine("_____PRODUCT PURCHASED_____");
+
         foreach (Product product in _products)
         {
-            Console.WriteLine(product.Displayproduct());
+            count ++;
+            Console.WriteLine($"{count}...{product.Displayproduct()}");
         }
     }
 
